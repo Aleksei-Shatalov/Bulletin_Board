@@ -1,9 +1,0 @@
-Django
-celery
-redis
-python-dotenv
-ckeditor
-Pillow
-django-filter
-django-allauth
-requests

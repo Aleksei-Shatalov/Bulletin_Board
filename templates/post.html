@@ -1,0 +1,27 @@
+{% extends 'flatpages/default.html' %}
+
+{% block title %}
+{{ post.title }}
+{% endblock title %}
+
+{% block content %}
+<h1>{{ post.title }}</h1>
+<p>{{ post.content|safe }}</p>
+<p>{{ post.created_at|date:'d M Y' }}</p>
+<p>Категория:
+    {% for category in post.categories.all %}
+        {{ category.name }}
+    {% endfor %}
+</p>
+<p>{{ post.text }}</p>
+<p>Автор: {{ post.author.user.username|default:"Unknown Author" }}</p>
+
+    <form method="post" action="{% url 'subscribe' %}">
+        {% csrf_token %}
+        {% for category in post.categories.all %}
+            <input type="hidden" name="category_id" value="{{ category.id }}">
+        {% endfor %}
+        <input type="hidden" name="next" value="{{ request.path }}">
+        <button type="submit">Подписаться на данную категорию</button>
+    </form>
+{% endblock content %}

@@ -3,7 +3,7 @@ __pycache__/
 #*.sqlite3
 .DS_Store
 .env
-#/media/
-#/staticfiles/
-#/node_modules/
+/media/
+/staticfiles/
+/node_modules/
 #venv/

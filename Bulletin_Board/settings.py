@@ -101,7 +101,7 @@ AUTHENTICATION_BACKENDS = [
 
 WSGI_APPLICATION = 'Bulletin_Board.wsgi.application'
 
-LOGIN_URL = '/accounts/login/'
+LOGIN_URL = '/sign/login/'
 LOGIN_REDIRECT_URL = '/'
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
@@ -176,7 +176,7 @@ ACCOUNT_EMAIL_VERIFICATION = 'mandatory'
 ACCOUNT_FORMS = {'signup': 'sign.models.BasicSignupForm'}
 ACCOUNT_ADAPTER = 'allauth.account.adapter.DefaultAccountAdapter'
 
-EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'   # smtp - для почтового сервера, console
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'   # smtp - для почтового сервера, console
 EMAIL_HOST = 'smtp.yandex.com'
 EMAIL_PORT = 465
 EMAIL_USE_SSL = True
@@ -185,10 +185,55 @@ EMAIL_HOST_USER = os.getenv('EMAIL_HOST_USER')  # Ваш email на Яндекс
 EMAIL_HOST_PASSWORD = os.getenv('EMAIL_HOST_PASSWORD')      # Пароль от почты
 DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
 
+CELERY_BROKER_URL = 'redis://localhost:6379/0'
+CELERY_RESULT_BACKEND = 'redis://localhost:6379'
+CELERY_ACCEPT_CONTENT = ['application/json']
+CELERY_TASK_SERIALIZER = 'json'
+CELERY_RESULT_SERIALIZER = 'json'
+
 AWS_QUERYSTRING_AUTH = False
 
 CKEDITOR_CONFIGS = {
     "default": {
         "removePlugins": "stylesheetparser",
+        'extraAllowedContent': 'iframe[*]',
+        'toolbar': 'Full',
     }
 }
+
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'formatters': {
+        'verbose': {
+            'format': '{levelname} {asctime} {module} {message}',
+            'style': '{',
+        },
+    },
+    'handlers': {
+        'console': {
+            'level': 'ERROR',
+            'class': 'logging.StreamHandler',
+            'formatter': 'verbose',
+        },
+        'file': {
+            'level': 'ERROR',
+            'class': 'logging.FileHandler',
+            'filename': 'errors.log',
+            'formatter': 'verbose',
+        },
+    },
+    'loggers': {
+        'django': {
+            'handlers': ['console', 'file'],
+            'level': 'WARNING',
+            'propagate': True,
+        },
+        'posts_app': {
+            'handlers': ['console', 'file'],
+            'level': 'WARNING',
+            'propagate': False,
+        },
+    },
+}
+

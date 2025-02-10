@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+{% extends "main.html" %}
+{% block content %}
+<h2>Введите одноразовый код</h2>
+
+<form method="post" action="{% url 'verify_otp' %}">
+    {% csrf_token %}
+    <table>
+        <tr>
+            <td>{{ form.code.label_tag }}</td>
+            <td>{{ form.code }}</td>
+        </tr>
+    </table>
+
+    <input type="submit" value="Подтвердить код">
+</form>
+
+<!-- Сообщение об ошибке -->
+{% if error %}
+    <p style="color: red;">{{ error }}</p>
+{% endif %}
+
+{% if form.errors %}
+    <ul>
+        {% for field in form %}
+            {% for error in field.errors %}
+                <li>{{ error }}</li>
+            {% endfor %}
+        {% endfor %}
+    </ul>
+{% endif %}
+{% endblock %}

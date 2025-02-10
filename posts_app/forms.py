@@ -1,5 +1,5 @@
 from django import forms
-from .models import Post, Category
+from .models import Post, Category, Reply
 from django.core.exceptions import ValidationError
 from ckeditor_uploader.widgets import CKEditorUploadingWidget
 
@@ -10,7 +10,6 @@ class PostForm(forms.ModelForm):
             'title',
             'content',
             'text',
-            'author'
         ]
 
     content = forms.CharField(widget=CKEditorUploadingWidget())
@@ -37,3 +36,12 @@ class PostForm(forms.ModelForm):
             )
 
         return cleaned_data
+
+class ReplyForm(forms.ModelForm):
+    class Meta:
+        model = Reply
+        fields = ['text']
+        labels = {'text': 'Текст отклика'}
+        widgets = {
+            'text': forms.Textarea(attrs={'placeholder': 'Введите текст отклика...', 'rows': 3}),
+        }

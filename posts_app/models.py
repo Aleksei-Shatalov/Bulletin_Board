@@ -38,7 +38,7 @@ class Post(models.Model):
         return self.title
 
     def get_absolute_url(self):
-        return reverse('post_detail', args=[str(self.id)])
+        return reverse('posts_app:post_detail', args=[str(self.id)])
 
     def save(self, *args, **kwargs):
         super().save(*args, **kwargs)  # сначала вызываем метод родителя, чтобы объект сохранился
@@ -54,19 +54,18 @@ class PostCategory(models.Model):
 
 
 class Reply(models.Model):
+    STATUS_CHOICES = [
+        ('pending', 'Ожидает'),
+        ('accepted', 'Принят'),
+    ]
+
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     post = models.ForeignKey('Post', on_delete=models.CASCADE, related_name='replies')
     text = models.TextField()
     created_at = models.DateTimeField(auto_now_add=True)
+    status = models.CharField(max_length=10, choices=STATUS_CHOICES, default='pending')
 
     def __str__(self):
         return f"Reply by {self.user} on {self.post.title}"
 
-#class MyCustomPermission(models.Model):
-#    name = models.CharField(max_length=255)
-#    codename = models.CharField(max_length=255)
 
-#def add_permissions():
-#    group = Group.objects.get(name='author')
-#    permission = Permission.objects.get(codename='add_image')
-#    group.permissions.add(permission)

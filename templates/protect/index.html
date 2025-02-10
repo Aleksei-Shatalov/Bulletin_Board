@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+
 {% extends "main.html" %}
 
 {% block content %}
@@ -6,4 +6,36 @@
 <div> Здесь может содержаться персональная информация для каждого пользователя </div>
 
 <button> <a href="sign/logout/">Выйти</a> </button>
-{% endblock %}
+
+<h2>Полученные отклики</h2>
+
+<!-- Форма фильтрации откликов по постам -->
+<form method="get" action="">
+    <label for="post_id">Выберите пост:</label>
+    <select name="post_id" id="post_id">
+        <option value="">Все посты</option>
+        {% for post in user_posts %}
+            <option value="{{ post.id }}" {% if request.GET.post_id == post.id|stringformat:"s" %} selected {% endif %}>
+                {{ post.title }}
+            </option>
+        {% endfor %}
+    </select>
+    <button type="submit">Фильтровать</button>
+</form>
+
+<!-- Отображение откликов -->
+{% if replies %}
+    {% for reply in replies %}
+        <h3>{{ reply.post.title }}</h3>
+        <p>{{ reply.text }} (от {{ reply.created_at|date:"d M Y H:i" }}) — Статус: {{ reply.get_status_display }}</p>
+        <form method="post" action="">
+            {% csrf_token %}
+            <input type="hidden" name="reply_id" value="{{ reply.id }}">
+            <button name="action" value="accept">Принять</button>
+            <button name="action" value="delete">Удалить</button>
+        </form>
+    {% endfor %}
+{% else %}
+    <p>Нет откликов для выбранного поста.</p>
+{% endif %}
+{% endblock content %}

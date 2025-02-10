@@ -16,7 +16,7 @@
 <p>{{ post.text }}</p>
 <p>Автор: {{ post.author.user.username|default:"Unknown Author" }}</p>
 
-    <form method="post" action="{% url 'subscribe' %}">
+    <form method="post" action="{% url 'posts_app:subscribe' %}">
         {% csrf_token %}
         {% for category in post.categories.all %}
             <input type="hidden" name="category_id" value="{{ category.id }}">
@@ -24,4 +24,24 @@
         <input type="hidden" name="next" value="{{ request.path }}">
         <button type="submit">Подписаться на данную категорию</button>
     </form>
+
+<a href="{% url 'posts_app:news_update' post.pk %}">
+    <button>Редактировать объявление</button>
+</a>
+
+<form method="POST" action="{% url 'posts_app:add_reply' post.id %}">
+    {% csrf_token %}
+    <textarea name="text" placeholder="Напишите ваш отклик" required>{{ form.text.value }}</textarea>
+    {% if form.text.errors %}
+        <div class="error">{{ form.text.errors }}</div>
+    {% endif %}
+    <button type="submit">Откликнуться</button>
+</form>
+
+<!-- Сообщение об успешной отправке отклика -->
+{% if reply_success %}
+    <p style="color: green;">Ваш отклик успешно отправлен!</p>
+{% elif reply_success is not none %}
+    <p style="color: red;">Ошибка при отправке ответа.</p>
+{% endif %}
 {% endblock content %}

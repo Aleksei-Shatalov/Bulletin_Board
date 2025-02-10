@@ -1,8 +1,10 @@
+import random
 from django.db import models
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User, Group
 from django import forms
 from allauth.account.forms import SignupForm
+from django.utils.timezone import now
 
 
 class BaseRegisterForm(UserCreationForm):
@@ -27,3 +29,13 @@ class BasicSignupForm(SignupForm):
         authors_group = Group.objects.get(name='authors')
         authors_group.user_set.add(user)
         return user
+
+
+class OTP(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    code = models.CharField(max_length=6)
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    def is_valid(self):
+        # Проверка: валиден ли код (например, 5 минут с момента создания)
+        return (now() - self.created_at).seconds < 300

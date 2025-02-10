@@ -1,0 +1,333 @@
+ERROR 2025-02-09 04:03:51,773 log Internal Server Error: /2/
+Traceback (most recent call last):
+  File "/Users/alekseishatalov/PycharmProjects/BulletinBoard/venv/lib/python3.8/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/Users/alekseishatalov/PycharmProjects/BulletinBoard/venv/lib/python3.8/site-packages/django/core/handlers/base.py", line 220, in _get_response
+    response = response.render()
+  File "/Users/alekseishatalov/PycharmProjects/BulletinBoard/venv/lib/python3.8/site-packages/django/template/response.py", line 114, in render
+    self.content = self.rendered_content
+  File "/Users/alekseishatalov/PycharmProjects/BulletinBoard/venv/lib/python3.8/site-packages/django/template/response.py", line 92, in rendered_content
+    return template.render(context, self._request)
+  File "/Users/alekseishatalov/PycharmProjects/BulletinBoard/venv/lib/python3.8/site-packages/django/template/backends/django.py", line 61, in render
+    return self.template.render(context)
+  File "/Users/alekseishatalov/PycharmProjects/BulletinBoard/venv/lib/python3.8/site-packages/django/template/base.py", line 175, in render
+    return self._render(context)
+  File "/Users/alekseishatalov/PycharmProjects/BulletinBoard/venv/lib/python3.8/site-packages/django/template/base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "/Users/alekseishatalov/PycharmProjects/BulletinBoard/venv/lib/python3.8/site-packages/django/template/base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/Users/alekseishatalov/PycharmProjects/BulletinBoard/venv/lib/python3.8/site-packages/django/template/base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/Users/alekseishatalov/PycharmProjects/BulletinBoard/venv/lib/python3.8/site-packages/django/template/base.py", line 966, in render_annotated
+    return self.render(context)
+  File "/Users/alekseishatalov/PycharmProjects/BulletinBoard/venv/lib/python3.8/site-packages/django/template/loader_tags.py", line 157, in render
+    return compiled_parent._render(context)
+  File "/Users/alekseishatalov/PycharmProjects/BulletinBoard/venv/lib/python3.8/site-packages/django/template/base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "/Users/alekseishatalov/PycharmProjects/BulletinBoard/venv/lib/python3.8/site-packages/django/template/base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/Users/alekseishatalov/PycharmProjects/BulletinBoard/venv/lib/python3.8/site-packages/django/template/base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/Users/alekseishatalov/PycharmProjects/BulletinBoard/venv/lib/python3.8/site-packages/django/template/base.py", line 966, in render_annotated
+    return self.render(context)
+  File "/Users/alekseishatalov/PycharmProjects/BulletinBoard/venv/lib/python3.8/site-packages/django/template/loader_tags.py", line 63, in render
+    result = block.nodelist.render(context)
+  File "/Users/alekseishatalov/PycharmProjects/BulletinBoard/venv/lib/python3.8/site-packages/django/template/base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/Users/alekseishatalov/PycharmProjects/BulletinBoard/venv/lib/python3.8/site-packages/django/template/base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/Users/alekseishatalov/PycharmProjects/BulletinBoard/venv/lib/python3.8/site-packages/django/template/base.py", line 966, in render_annotated
+    return self.render(context)
+  File "/Users/alekseishatalov/PycharmProjects/BulletinBoard/venv/lib/python3.8/site-packages/django/template/defaulttags.py", line 471, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+  File "/Users/alekseishatalov/PycharmProjects/BulletinBoard/venv/lib/python3.8/site-packages/django/urls/base.py", line 88, in reverse
+    return resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+  File "/Users/alekseishatalov/PycharmProjects/BulletinBoard/venv/lib/python3.8/site-packages/django/urls/resolvers.py", line 828, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'add_reply' not found. 'add_reply' is not a valid view function or pattern name.
+ERROR 2025-02-09 04:03:51,783 basehttp "GET /2/ HTTP/1.1" 500 166113
+ERROR 2025-02-09 04:12:22,878 log Internal Server Error: /2/add_reply/
+Traceback (most recent call last):
+  File "/Users/alekseishatalov/PycharmProjects/BulletinBoard/venv/lib/python3.8/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/Users/alekseishatalov/PycharmProjects/BulletinBoard/venv/lib/python3.8/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+TypeError: add_reply() got an unexpected keyword argument 'pk'
+ERROR 2025-02-09 04:12:22,879 basehttp "POST /2/add_reply/ HTTP/1.1" 500 63985
+ERROR 2025-02-09 04:19:17,510 log Internal Server Error: /2/add_reply/
+Traceback (most recent call last):
+  File "/Users/alekseishatalov/PycharmProjects/BulletinBoard/venv/lib/python3.8/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/Users/alekseishatalov/PycharmProjects/BulletinBoard/venv/lib/python3.8/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+TypeError: add_reply() got an unexpected keyword argument 'pk'
+ERROR 2025-02-09 04:19:17,512 basehttp "POST /2/add_reply/ HTTP/1.1" 500 64008
+ERROR 2025-02-09 04:24:18,977 log Internal Server Error: /2/add_reply/
+Traceback (most recent call last):
+  File "/Users/alekseishatalov/PycharmProjects/BulletinBoard/venv/lib/python3.8/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/Users/alekseishatalov/PycharmProjects/BulletinBoard/venv/lib/python3.8/site-packages/django/core/handlers/base.py", line 204, in _get_response
+    self.check_response(response, callback)
+  File "/Users/alekseishatalov/PycharmProjects/BulletinBoard/venv/lib/python3.8/site-packages/django/core/handlers/base.py", line 332, in check_response
+    raise ValueError(
+ValueError: The view posts_app.views.add_reply didn't return an HttpResponse object. It returned None instead.
+ERROR 2025-02-09 04:24:18,979 basehttp "POST /2/add_reply/ HTTP/1.1" 500 68677
+ERROR 2025-02-09 11:45:35,551 log Internal Server Error: /
+Traceback (most recent call last):
+  File "/Users/alekseishatalov/PycharmProjects/BulletinBoard/venv/lib/python3.8/site-packages/django/template/smartif.py", line 179, in translate_token
+    op = OPERATORS[token]
+KeyError: 'post_html|slice:":500"|regex_search:"<img.*?src=.*?>"'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/alekseishatalov/PycharmProjects/BulletinBoard/venv/lib/python3.8/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/Users/alekseishatalov/PycharmProjects/BulletinBoard/venv/lib/python3.8/site-packages/django/core/handlers/base.py", line 220, in _get_response
+    response = response.render()
+  File "/Users/alekseishatalov/PycharmProjects/BulletinBoard/venv/lib/python3.8/site-packages/django/template/response.py", line 114, in render
+    self.content = self.rendered_content
+  File "/Users/alekseishatalov/PycharmProjects/BulletinBoard/venv/lib/python3.8/site-packages/django/template/response.py", line 92, in rendered_content
+    return template.render(context, self._request)
+  File "/Users/alekseishatalov/PycharmProjects/BulletinBoard/venv/lib/python3.8/site-packages/django/template/backends/django.py", line 61, in render
+    return self.template.render(context)
+  File "/Users/alekseishatalov/PycharmProjects/BulletinBoard/venv/lib/python3.8/site-packages/django/template/base.py", line 175, in render
+    return self._render(context)
+  File "/Users/alekseishatalov/PycharmProjects/BulletinBoard/venv/lib/python3.8/site-packages/django/template/base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "/Users/alekseishatalov/PycharmProjects/BulletinBoard/venv/lib/python3.8/site-packages/django/template/base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/Users/alekseishatalov/PycharmProjects/BulletinBoard/venv/lib/python3.8/site-packages/django/template/base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/Users/alekseishatalov/PycharmProjects/BulletinBoard/venv/lib/python3.8/site-packages/django/template/base.py", line 966, in render_annotated
+    return self.render(context)
+  File "/Users/alekseishatalov/PycharmProjects/BulletinBoard/venv/lib/python3.8/site-packages/django/template/loader_tags.py", line 132, in render
+    compiled_parent = self.get_parent(context)
+  File "/Users/alekseishatalov/PycharmProjects/BulletinBoard/venv/lib/python3.8/site-packages/django/template/loader_tags.py", line 129, in get_parent
+    return self.find_template(parent, context)
+  File "/Users/alekseishatalov/PycharmProjects/BulletinBoard/venv/lib/python3.8/site-packages/django/template/loader_tags.py", line 107, in find_template
+    template, origin = context.template.engine.find_template(
+  File "/Users/alekseishatalov/PycharmProjects/BulletinBoard/venv/lib/python3.8/site-packages/django/template/engine.py", line 157, in find_template
+    template = loader.get_template(name, skip=skip)
+  File "/Users/alekseishatalov/PycharmProjects/BulletinBoard/venv/lib/python3.8/site-packages/django/template/loaders/cached.py", line 57, in get_template
+    template = super().get_template(template_name, skip)
+  File "/Users/alekseishatalov/PycharmProjects/BulletinBoard/venv/lib/python3.8/site-packages/django/template/loaders/base.py", line 28, in get_template
+    return Template(
+  File "/Users/alekseishatalov/PycharmProjects/BulletinBoard/venv/lib/python3.8/site-packages/django/template/base.py", line 154, in __init__
+    self.nodelist = self.compile_nodelist()
+  File "/Users/alekseishatalov/PycharmProjects/BulletinBoard/venv/lib/python3.8/site-packages/django/template/base.py", line 200, in compile_nodelist
+    return parser.parse()
+  File "/Users/alekseishatalov/PycharmProjects/BulletinBoard/venv/lib/python3.8/site-packages/django/template/base.py", line 513, in parse
+    raise self.error(token, e)
+  File "/Users/alekseishatalov/PycharmProjects/BulletinBoard/venv/lib/python3.8/site-packages/django/template/base.py", line 511, in parse
+    compiled_result = compile_func(self, token)
+  File "/Users/alekseishatalov/PycharmProjects/BulletinBoard/venv/lib/python3.8/site-packages/django/template/loader_tags.py", line 232, in do_block
+    nodelist = parser.parse(("endblock",))
+  File "/Users/alekseishatalov/PycharmProjects/BulletinBoard/venv/lib/python3.8/site-packages/django/template/base.py", line 513, in parse
+    raise self.error(token, e)
+  File "/Users/alekseishatalov/PycharmProjects/BulletinBoard/venv/lib/python3.8/site-packages/django/template/base.py", line 511, in parse
+    compiled_result = compile_func(self, token)
+  File "/Users/alekseishatalov/PycharmProjects/BulletinBoard/venv/lib/python3.8/site-packages/django/template/defaulttags.py", line 853, in do_for
+    nodelist_loop = parser.parse(
+  File "/Users/alekseishatalov/PycharmProjects/BulletinBoard/venv/lib/python3.8/site-packages/django/template/base.py", line 513, in parse
+    raise self.error(token, e)
+  File "/Users/alekseishatalov/PycharmProjects/BulletinBoard/venv/lib/python3.8/site-packages/django/template/base.py", line 511, in parse
+    compiled_result = compile_func(self, token)
+  File "/Users/alekseishatalov/PycharmProjects/BulletinBoard/venv/lib/python3.8/site-packages/django/template/defaulttags.py", line 1491, in do_with
+    nodelist = parser.parse(("endwith",))
+  File "/Users/alekseishatalov/PycharmProjects/BulletinBoard/venv/lib/python3.8/site-packages/django/template/base.py", line 513, in parse
+    raise self.error(token, e)
+  File "/Users/alekseishatalov/PycharmProjects/BulletinBoard/venv/lib/python3.8/site-packages/django/template/base.py", line 511, in parse
+    compiled_result = compile_func(self, token)
+  File "/Users/alekseishatalov/PycharmProjects/BulletinBoard/venv/lib/python3.8/site-packages/django/template/defaulttags.py", line 952, in do_if
+    condition = TemplateIfParser(parser, bits).parse()
+  File "/Users/alekseishatalov/PycharmProjects/BulletinBoard/venv/lib/python3.8/site-packages/django/template/defaulttags.py", line 885, in __init__
+    super().__init__(*args, **kwargs)
+  File "/Users/alekseishatalov/PycharmProjects/BulletinBoard/venv/lib/python3.8/site-packages/django/template/smartif.py", line 170, in __init__
+    mapped_tokens.append(self.translate_token(token))
+  File "/Users/alekseishatalov/PycharmProjects/BulletinBoard/venv/lib/python3.8/site-packages/django/template/smartif.py", line 181, in translate_token
+    return self.create_var(token)
+  File "/Users/alekseishatalov/PycharmProjects/BulletinBoard/venv/lib/python3.8/site-packages/django/template/defaulttags.py", line 888, in create_var
+    return TemplateLiteral(self.template_parser.compile_filter(value), value)
+  File "/Users/alekseishatalov/PycharmProjects/BulletinBoard/venv/lib/python3.8/site-packages/django/template/base.py", line 600, in compile_filter
+    return FilterExpression(token, self)
+  File "/Users/alekseishatalov/PycharmProjects/BulletinBoard/venv/lib/python3.8/site-packages/django/template/base.py", line 698, in __init__
+    filter_func = parser.find_filter(filter_name)
+  File "/Users/alekseishatalov/PycharmProjects/BulletinBoard/venv/lib/python3.8/site-packages/django/template/base.py", line 606, in find_filter
+    raise TemplateSyntaxError("Invalid filter: '%s'" % filter_name)
+django.template.exceptions.TemplateSyntaxError: Invalid filter: 'regex_search'
+ERROR 2025-02-09 11:45:35,565 basehttp "GET / HTTP/1.1" 500 278062
+ERROR 2025-02-10 09:37:33,622 log Internal Server Error: /
+Traceback (most recent call last):
+  File "/Users/alekseishatalov/PycharmProjects/BulletinBoard/venv/lib/python3.8/site-packages/django/template/smartif.py", line 179, in translate_token
+    op = OPERATORS[token]
+KeyError: 'content|contains:"<img"'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/alekseishatalov/PycharmProjects/BulletinBoard/venv/lib/python3.8/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/Users/alekseishatalov/PycharmProjects/BulletinBoard/venv/lib/python3.8/site-packages/django/core/handlers/base.py", line 220, in _get_response
+    response = response.render()
+  File "/Users/alekseishatalov/PycharmProjects/BulletinBoard/venv/lib/python3.8/site-packages/django/template/response.py", line 114, in render
+    self.content = self.rendered_content
+  File "/Users/alekseishatalov/PycharmProjects/BulletinBoard/venv/lib/python3.8/site-packages/django/template/response.py", line 90, in rendered_content
+    template = self.resolve_template(self.template_name)
+  File "/Users/alekseishatalov/PycharmProjects/BulletinBoard/venv/lib/python3.8/site-packages/django/template/response.py", line 72, in resolve_template
+    return select_template(template, using=self.using)
+  File "/Users/alekseishatalov/PycharmProjects/BulletinBoard/venv/lib/python3.8/site-packages/django/template/loader.py", line 42, in select_template
+    return engine.get_template(template_name)
+  File "/Users/alekseishatalov/PycharmProjects/BulletinBoard/venv/lib/python3.8/site-packages/django/template/backends/django.py", line 33, in get_template
+    return Template(self.engine.get_template(template_name), self)
+  File "/Users/alekseishatalov/PycharmProjects/BulletinBoard/venv/lib/python3.8/site-packages/django/template/engine.py", line 175, in get_template
+    template, origin = self.find_template(template_name)
+  File "/Users/alekseishatalov/PycharmProjects/BulletinBoard/venv/lib/python3.8/site-packages/django/template/engine.py", line 157, in find_template
+    template = loader.get_template(name, skip=skip)
+  File "/Users/alekseishatalov/PycharmProjects/BulletinBoard/venv/lib/python3.8/site-packages/django/template/loaders/cached.py", line 57, in get_template
+    template = super().get_template(template_name, skip)
+  File "/Users/alekseishatalov/PycharmProjects/BulletinBoard/venv/lib/python3.8/site-packages/django/template/loaders/base.py", line 28, in get_template
+    return Template(
+  File "/Users/alekseishatalov/PycharmProjects/BulletinBoard/venv/lib/python3.8/site-packages/django/template/base.py", line 154, in __init__
+    self.nodelist = self.compile_nodelist()
+  File "/Users/alekseishatalov/PycharmProjects/BulletinBoard/venv/lib/python3.8/site-packages/django/template/base.py", line 200, in compile_nodelist
+    return parser.parse()
+  File "/Users/alekseishatalov/PycharmProjects/BulletinBoard/venv/lib/python3.8/site-packages/django/template/base.py", line 513, in parse
+    raise self.error(token, e)
+  File "/Users/alekseishatalov/PycharmProjects/BulletinBoard/venv/lib/python3.8/site-packages/django/template/base.py", line 511, in parse
+    compiled_result = compile_func(self, token)
+  File "/Users/alekseishatalov/PycharmProjects/BulletinBoard/venv/lib/python3.8/site-packages/django/template/loader_tags.py", line 293, in do_extends
+    nodelist = parser.parse()
+  File "/Users/alekseishatalov/PycharmProjects/BulletinBoard/venv/lib/python3.8/site-packages/django/template/base.py", line 513, in parse
+    raise self.error(token, e)
+  File "/Users/alekseishatalov/PycharmProjects/BulletinBoard/venv/lib/python3.8/site-packages/django/template/base.py", line 511, in parse
+    compiled_result = compile_func(self, token)
+  File "/Users/alekseishatalov/PycharmProjects/BulletinBoard/venv/lib/python3.8/site-packages/django/template/loader_tags.py", line 232, in do_block
+    nodelist = parser.parse(("endblock",))
+  File "/Users/alekseishatalov/PycharmProjects/BulletinBoard/venv/lib/python3.8/site-packages/django/template/base.py", line 513, in parse
+    raise self.error(token, e)
+  File "/Users/alekseishatalov/PycharmProjects/BulletinBoard/venv/lib/python3.8/site-packages/django/template/base.py", line 511, in parse
+    compiled_result = compile_func(self, token)
+  File "/Users/alekseishatalov/PycharmProjects/BulletinBoard/venv/lib/python3.8/site-packages/django/template/defaulttags.py", line 953, in do_if
+    nodelist = parser.parse(("elif", "else", "endif"))
+  File "/Users/alekseishatalov/PycharmProjects/BulletinBoard/venv/lib/python3.8/site-packages/django/template/base.py", line 513, in parse
+    raise self.error(token, e)
+  File "/Users/alekseishatalov/PycharmProjects/BulletinBoard/venv/lib/python3.8/site-packages/django/template/base.py", line 511, in parse
+    compiled_result = compile_func(self, token)
+  File "/Users/alekseishatalov/PycharmProjects/BulletinBoard/venv/lib/python3.8/site-packages/django/template/defaulttags.py", line 853, in do_for
+    nodelist_loop = parser.parse(
+  File "/Users/alekseishatalov/PycharmProjects/BulletinBoard/venv/lib/python3.8/site-packages/django/template/base.py", line 513, in parse
+    raise self.error(token, e)
+  File "/Users/alekseishatalov/PycharmProjects/BulletinBoard/venv/lib/python3.8/site-packages/django/template/base.py", line 511, in parse
+    compiled_result = compile_func(self, token)
+  File "/Users/alekseishatalov/PycharmProjects/BulletinBoard/venv/lib/python3.8/site-packages/django/template/defaulttags.py", line 1491, in do_with
+    nodelist = parser.parse(("endwith",))
+  File "/Users/alekseishatalov/PycharmProjects/BulletinBoard/venv/lib/python3.8/site-packages/django/template/base.py", line 513, in parse
+    raise self.error(token, e)
+  File "/Users/alekseishatalov/PycharmProjects/BulletinBoard/venv/lib/python3.8/site-packages/django/template/base.py", line 511, in parse
+    compiled_result = compile_func(self, token)
+  File "/Users/alekseishatalov/PycharmProjects/BulletinBoard/venv/lib/python3.8/site-packages/django/template/defaulttags.py", line 952, in do_if
+    condition = TemplateIfParser(parser, bits).parse()
+  File "/Users/alekseishatalov/PycharmProjects/BulletinBoard/venv/lib/python3.8/site-packages/django/template/defaulttags.py", line 885, in __init__
+    super().__init__(*args, **kwargs)
+  File "/Users/alekseishatalov/PycharmProjects/BulletinBoard/venv/lib/python3.8/site-packages/django/template/smartif.py", line 170, in __init__
+    mapped_tokens.append(self.translate_token(token))
+  File "/Users/alekseishatalov/PycharmProjects/BulletinBoard/venv/lib/python3.8/site-packages/django/template/smartif.py", line 181, in translate_token
+    return self.create_var(token)
+  File "/Users/alekseishatalov/PycharmProjects/BulletinBoard/venv/lib/python3.8/site-packages/django/template/defaulttags.py", line 888, in create_var
+    return TemplateLiteral(self.template_parser.compile_filter(value), value)
+  File "/Users/alekseishatalov/PycharmProjects/BulletinBoard/venv/lib/python3.8/site-packages/django/template/base.py", line 600, in compile_filter
+    return FilterExpression(token, self)
+  File "/Users/alekseishatalov/PycharmProjects/BulletinBoard/venv/lib/python3.8/site-packages/django/template/base.py", line 698, in __init__
+    filter_func = parser.find_filter(filter_name)
+  File "/Users/alekseishatalov/PycharmProjects/BulletinBoard/venv/lib/python3.8/site-packages/django/template/base.py", line 606, in find_filter
+    raise TemplateSyntaxError("Invalid filter: '%s'" % filter_name)
+django.template.exceptions.TemplateSyntaxError: Invalid filter: 'contains'
+ERROR 2025-02-10 09:37:33,636 basehttp "GET / HTTP/1.1" 500 311877
+ERROR 2025-02-10 09:37:33,703 log Internal Server Error: /
+Traceback (most recent call last):
+  File "/Users/alekseishatalov/PycharmProjects/BulletinBoard/venv/lib/python3.8/site-packages/django/template/smartif.py", line 179, in translate_token
+    op = OPERATORS[token]
+KeyError: 'content|contains:"<img"'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/alekseishatalov/PycharmProjects/BulletinBoard/venv/lib/python3.8/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/Users/alekseishatalov/PycharmProjects/BulletinBoard/venv/lib/python3.8/site-packages/django/core/handlers/base.py", line 220, in _get_response
+    response = response.render()
+  File "/Users/alekseishatalov/PycharmProjects/BulletinBoard/venv/lib/python3.8/site-packages/django/template/response.py", line 114, in render
+    self.content = self.rendered_content
+  File "/Users/alekseishatalov/PycharmProjects/BulletinBoard/venv/lib/python3.8/site-packages/django/template/response.py", line 90, in rendered_content
+    template = self.resolve_template(self.template_name)
+  File "/Users/alekseishatalov/PycharmProjects/BulletinBoard/venv/lib/python3.8/site-packages/django/template/response.py", line 72, in resolve_template
+    return select_template(template, using=self.using)
+  File "/Users/alekseishatalov/PycharmProjects/BulletinBoard/venv/lib/python3.8/site-packages/django/template/loader.py", line 42, in select_template
+    return engine.get_template(template_name)
+  File "/Users/alekseishatalov/PycharmProjects/BulletinBoard/venv/lib/python3.8/site-packages/django/template/backends/django.py", line 33, in get_template
+    return Template(self.engine.get_template(template_name), self)
+  File "/Users/alekseishatalov/PycharmProjects/BulletinBoard/venv/lib/python3.8/site-packages/django/template/engine.py", line 175, in get_template
+    template, origin = self.find_template(template_name)
+  File "/Users/alekseishatalov/PycharmProjects/BulletinBoard/venv/lib/python3.8/site-packages/django/template/engine.py", line 157, in find_template
+    template = loader.get_template(name, skip=skip)
+  File "/Users/alekseishatalov/PycharmProjects/BulletinBoard/venv/lib/python3.8/site-packages/django/template/loaders/cached.py", line 57, in get_template
+    template = super().get_template(template_name, skip)
+  File "/Users/alekseishatalov/PycharmProjects/BulletinBoard/venv/lib/python3.8/site-packages/django/template/loaders/base.py", line 28, in get_template
+    return Template(
+  File "/Users/alekseishatalov/PycharmProjects/BulletinBoard/venv/lib/python3.8/site-packages/django/template/base.py", line 154, in __init__
+    self.nodelist = self.compile_nodelist()
+  File "/Users/alekseishatalov/PycharmProjects/BulletinBoard/venv/lib/python3.8/site-packages/django/template/base.py", line 200, in compile_nodelist
+    return parser.parse()
+  File "/Users/alekseishatalov/PycharmProjects/BulletinBoard/venv/lib/python3.8/site-packages/django/template/base.py", line 513, in parse
+    raise self.error(token, e)
+  File "/Users/alekseishatalov/PycharmProjects/BulletinBoard/venv/lib/python3.8/site-packages/django/template/base.py", line 511, in parse
+    compiled_result = compile_func(self, token)
+  File "/Users/alekseishatalov/PycharmProjects/BulletinBoard/venv/lib/python3.8/site-packages/django/template/loader_tags.py", line 293, in do_extends
+    nodelist = parser.parse()
+  File "/Users/alekseishatalov/PycharmProjects/BulletinBoard/venv/lib/python3.8/site-packages/django/template/base.py", line 513, in parse
+    raise self.error(token, e)
+  File "/Users/alekseishatalov/PycharmProjects/BulletinBoard/venv/lib/python3.8/site-packages/django/template/base.py", line 511, in parse
+    compiled_result = compile_func(self, token)
+  File "/Users/alekseishatalov/PycharmProjects/BulletinBoard/venv/lib/python3.8/site-packages/django/template/loader_tags.py", line 232, in do_block
+    nodelist = parser.parse(("endblock",))
+  File "/Users/alekseishatalov/PycharmProjects/BulletinBoard/venv/lib/python3.8/site-packages/django/template/base.py", line 513, in parse
+    raise self.error(token, e)
+  File "/Users/alekseishatalov/PycharmProjects/BulletinBoard/venv/lib/python3.8/site-packages/django/template/base.py", line 511, in parse
+    compiled_result = compile_func(self, token)
+  File "/Users/alekseishatalov/PycharmProjects/BulletinBoard/venv/lib/python3.8/site-packages/django/template/defaulttags.py", line 953, in do_if
+    nodelist = parser.parse(("elif", "else", "endif"))
+  File "/Users/alekseishatalov/PycharmProjects/BulletinBoard/venv/lib/python3.8/site-packages/django/template/base.py", line 513, in parse
+    raise self.error(token, e)
+  File "/Users/alekseishatalov/PycharmProjects/BulletinBoard/venv/lib/python3.8/site-packages/django/template/base.py", line 511, in parse
+    compiled_result = compile_func(self, token)
+  File "/Users/alekseishatalov/PycharmProjects/BulletinBoard/venv/lib/python3.8/site-packages/django/template/defaulttags.py", line 853, in do_for
+    nodelist_loop = parser.parse(
+  File "/Users/alekseishatalov/PycharmProjects/BulletinBoard/venv/lib/python3.8/site-packages/django/template/base.py", line 513, in parse
+    raise self.error(token, e)
+  File "/Users/alekseishatalov/PycharmProjects/BulletinBoard/venv/lib/python3.8/site-packages/django/template/base.py", line 511, in parse
+    compiled_result = compile_func(self, token)
+  File "/Users/alekseishatalov/PycharmProjects/BulletinBoard/venv/lib/python3.8/site-packages/django/template/defaulttags.py", line 1491, in do_with
+    nodelist = parser.parse(("endwith",))
+  File "/Users/alekseishatalov/PycharmProjects/BulletinBoard/venv/lib/python3.8/site-packages/django/template/base.py", line 513, in parse
+    raise self.error(token, e)
+  File "/Users/alekseishatalov/PycharmProjects/BulletinBoard/venv/lib/python3.8/site-packages/django/template/base.py", line 511, in parse
+    compiled_result = compile_func(self, token)
+  File "/Users/alekseishatalov/PycharmProjects/BulletinBoard/venv/lib/python3.8/site-packages/django/template/defaulttags.py", line 952, in do_if
+    condition = TemplateIfParser(parser, bits).parse()
+  File "/Users/alekseishatalov/PycharmProjects/BulletinBoard/venv/lib/python3.8/site-packages/django/template/defaulttags.py", line 885, in __init__
+    super().__init__(*args, **kwargs)
+  File "/Users/alekseishatalov/PycharmProjects/BulletinBoard/venv/lib/python3.8/site-packages/django/template/smartif.py", line 170, in __init__
+    mapped_tokens.append(self.translate_token(token))
+  File "/Users/alekseishatalov/PycharmProjects/BulletinBoard/venv/lib/python3.8/site-packages/django/template/smartif.py", line 181, in translate_token
+    return self.create_var(token)
+  File "/Users/alekseishatalov/PycharmProjects/BulletinBoard/venv/lib/python3.8/site-packages/django/template/defaulttags.py", line 888, in create_var
+    return TemplateLiteral(self.template_parser.compile_filter(value), value)
+  File "/Users/alekseishatalov/PycharmProjects/BulletinBoard/venv/lib/python3.8/site-packages/django/template/base.py", line 600, in compile_filter
+    return FilterExpression(token, self)
+  File "/Users/alekseishatalov/PycharmProjects/BulletinBoard/venv/lib/python3.8/site-packages/django/template/base.py", line 698, in __init__
+    filter_func = parser.find_filter(filter_name)
+  File "/Users/alekseishatalov/PycharmProjects/BulletinBoard/venv/lib/python3.8/site-packages/django/template/base.py", line 606, in find_filter
+    raise TemplateSyntaxError("Invalid filter: '%s'" % filter_name)
+django.template.exceptions.TemplateSyntaxError: Invalid filter: 'contains'
+ERROR 2025-02-10 09:37:33,710 basehttp "GET / HTTP/1.1" 500 311603

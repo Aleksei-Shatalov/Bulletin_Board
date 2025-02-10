@@ -17,7 +17,10 @@ Including another URLconf
 from django.contrib import admin
 from django.conf import settings
 from django.conf.urls.static import static
-from django.urls import path, include
+from django.contrib.auth.decorators import login_required
+from django.urls import path, include, re_path
+from django.views.decorators.cache import never_cache
+from ckeditor_uploader.views import upload, browse
 from posts_app.views import *
 from ckeditor_uploader import views as ckeditor_views
 from django.contrib.auth.views import LoginView, LogoutView
@@ -25,17 +28,18 @@ from django.contrib.auth.views import LoginView, LogoutView
 urlpatterns = ([
     path('admin/', admin.site.urls),
     path('', include('posts_app.urls')),
-    path('posts/', PostsList.as_view(), name='news_list'),
     path('pages/', include('django.contrib.flatpages.urls')),
-    path('ckeditor/', include('ckeditor_uploader.urls')),
     path('protect/', include('protect.urls')),
     path('sign/', include('sign.urls')),
     path('accounts/', include('allauth.urls')),
     path('protect/sign/logout/', LogoutView.as_view(template_name='sign/logout.html'), name='logout'),
-
+    path('ckeditor/', include('ckeditor_uploader.urls')),
+    re_path(r'^upload/', login_required(upload), name='ckeditor_upload'),
+    re_path(r'^browse/', login_required(never_cache(browse)), name='ckeditor_browse'),
 ])
 
 
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
     urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+
